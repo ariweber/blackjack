@@ -9,10 +9,10 @@ router.post("/start-game", gameController.startGame);
 
 router.post("/start-round", identifyPlayer, gameController.startRound);
 
-// router.post("/hit");
+router.post("/hit", identifyPlayer, gameController.hit);
 
-// router.post("/stand");
+router.post("/stand",  identifyPlayer, gameController.stand);
 
-// router.get("/my-round")
+router.get("/my-round", identifyPlayer, gameController.getRound)
 
 export default router

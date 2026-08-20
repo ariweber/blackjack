@@ -17,3 +17,31 @@ export async function startRound(req, res, next) {
     next(error);
   }
 }
+
+export async function hit(req, res, next) {
+  try {
+    const result = await gameService.hit(req.player);
+    res.status(200).json(result)
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function stand(req, res, next) {
+  try {
+    const result = await gameService.stand(req.player);
+    res.status(200).json(result)
+  } catch (error) {
+    next(error);
+  }
+}
+
+
+export async function getRound(req, res, next) {
+  try {
+    const result = await gameService.getMyRound(req.player);
+    res.status(200).json(result)
+  } catch (error) {
+    next(error);
+  }
+}

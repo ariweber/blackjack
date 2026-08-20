@@ -4,7 +4,6 @@ import { createError } from '../utils/createError.js';
 
 export async function identifyPlayer(req, res, next) {
   try {
-    console.log('header received:', JSON.stringify(req.headers['x-player-id']));
     const playerId = req.headers['x-player-id'];
 
     if (!playerId || !ObjectId.isValid(playerId)) {
