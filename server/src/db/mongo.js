@@ -1,17 +1,17 @@
+
 import { MongoClient } from "mongodb";
-import "dotenv/config"
+import "dotenv/config";
 
 const URI = process.env.MONGO_URI || "mongodb://localhost:27017";
+const client = new MongoClient(URI);
 
-const clinet = new MongoClient(URI);
+export let playersCollection;
+export let roundsCollection;
 
-await clinet.connect()
-console.log("connect to mongodb");
-
-const db = clinet.db("blackjack")
-export const playersCollection = db.collection("players")
-export const roundsCollection = db.collection("rounds")
-
-
-
-
+export async function connectDb() {
+  await client.connect();
+  console.log("connected to mongodb");
+  const db = client.db("blackjack");
+  playersCollection = db.collection("players");
+  roundsCollection = db.collection("rounds");
+}
