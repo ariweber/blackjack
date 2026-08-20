@@ -15,7 +15,7 @@ export function satrtGame() {
 
 export async function getMyRound(player) {
   const round = await roundRepo.findOpenRoundByPlayer(player._id.toString());
-  if (!round) return null;
+  if (!round) return;
   return {
     roundId: round._id,
     bet: round.bet,
