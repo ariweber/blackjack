@@ -1,0 +1,7 @@
+server/node_modules
+server/tests
+**/*.test.js
+.env
+Dockerfile
+docker-compose.yml
+.git

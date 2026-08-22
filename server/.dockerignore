@@ -1,6 +1,0 @@
-node_modules
-tests
-*.test.js
-.env
-Dockerfile
-docker-compose.yml

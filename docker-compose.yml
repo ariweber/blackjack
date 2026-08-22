@@ -1,6 +1,7 @@
 services:
   server:
     build: .
+    restart: on-failure
     ports:
       - "3000:3000"
     environment:
@@ -10,6 +11,8 @@ services:
 
   mongo:
     image: mongo:7
+    ports:
+      - "27017:27017"
     volumes:
       - mongo-data:/data/db
 
