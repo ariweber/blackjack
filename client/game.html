@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בלאק ג'ק</title>
+      <script defer src="game.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>בלאק ג'ק</h1>
+        <div id="chips">💰 ...</div>
+    </header>
+
+    <main>
+        <section id="bet-section" class="hidden">
+            <h2>כמה להמר?</h2>
+            <p>
+                <input id="bet-input" type="number" min="1" value="100">
+            </p>
+            <p style="margin-top: 16px;">
+                <button id="start-btn">התחל סבב</button>
+            </p>
+        </section>
+
+        <section id="game-section" class="hidden">
+            <div class="hand">
+                <h2>הדילר <span id="dealer-total"></span></h2>
+                <div id="dealer-cards" class="cards"></div>
+            </div>
+
+            <div class="hand">
+                <h2>היד שלך <span id="player-total"></span></h2>
+                <div id="player-cards" class="cards"></div>
+            </div>
+
+            <div id="actions">
+                <button id="hit-btn">Hit</button>
+                <button id="stand-btn">Stand</button>
+            </div>
+
+            <div id="result" class="hidden"></div>
+        </section>
+    </main>
+
+  
+</body>
+</html>
