@@ -1,30 +1,29 @@
-import { playersCollection } from "../db/mongo.js";
+import { getCollection } from "../db/mongo.js";
 import { ObjectId } from "mongodb";
 
 async function createPlayer() {
-  const reslut = await playersCollection.insertOne({
+  const result = await getCollection("players").insertOne({
     chips: 1000,
     createAt: new Date(),
   });
-  return reslut.insertedId;
+  return result.insertedId;
 }
 
 function getPlayerById(playerId) {
-  return playersCollection.findOne({ _id: new ObjectId(playerId) });
+  return getCollection("players").findOne({ _id: new ObjectId(playerId) });
 }
 
 function updatePlayerChips(playerId, amount) {
-  return playersCollection.updateOne(
+  return getCollection("players").updateOne(
     { _id: new ObjectId(playerId) },
     { $inc: { chips: amount } },
   );
-  c;
 }
 
 const playerRepo = {
-    createPlayer,
-    getPlayerById,
-    updatePlayerChips
+  createPlayer,
+  getPlayerById,
+  updatePlayerChips,
 };
 
-export default playerRepo
+export default playerRepo;
